@@ -29,6 +29,3 @@ exclude:
   - package-lock.json
   - webpack.config.js
   - jekyll-rtd-theme.gemspec
-
-baseurl: ""
-url: "https://gyongchae.github.io/"
