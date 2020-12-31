@@ -6,11 +6,13 @@ sort: 3
 
 # Reference
 
-**Title** Effective C++ 제3판
-**발행일** 2015년 3월 26일
-**지은이** 스콧 마이어스 (Scott Meyers)
-**옮긴이** 곽용재
-**발행인** 강태용
-**발행처** 프로텍미디어
+<dl>
+    <dt>Title</dt> <dd>Effective C++ 제3판</dd>
+    <dt>발행일</dt> <dd>2015년 3월 26일</dd>
+    <dt>지은이</dt> <dd>스콧 마이어스 (Scott Meyers)</dd>
+    <dt>옮긴이</dt> <dd>곽용재</dd>
+    <dt>발행인</dt> <dd>강태용</dd>
+    <dt>발행처</dt> <dd>프로텍미디어</dd>
+</dl>
 
 {% include list.liquid all=true %}
