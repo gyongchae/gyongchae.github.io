@@ -6,6 +6,9 @@ sort: 3
 
 # Reference
 
+![EC++Book(2020-12-31-10-53-40.png)](https://image.yes24.com/goods/17525589/800x0)
+이미지 링크: <https://image.yes24.com/goods/17525589/800x0>
+
 <dl>
     <dt>Title</dt> <dd>Effective C++ 제3판</dd>
     <dt>발행일</dt> <dd>2015년 3월 26일</dd>
