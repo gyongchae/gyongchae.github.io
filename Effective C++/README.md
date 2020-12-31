@@ -4,10 +4,9 @@ sort: 3
 
 # Effective C++
 
-# Reference
+{% include list.liquid all=true %}
 
-![EC++Book(2020-12-31-10-53-40.png)](https://image.yes24.com/goods/17525589/800x0)
-이미지 링크: <https://image.yes24.com/goods/17525589/800x0>
+# Reference
 
 <dl>
     <dt>Title</dt> <dd>Effective C++ 제3판</dd>
@@ -18,4 +17,5 @@ sort: 3
     <dt>발행처</dt> <dd>프로텍미디어</dd>
 </dl>
 
-{% include list.liquid all=true %}
+[EC++Book(2020-12-31-10-53-40.png)](https://image.yes24.com/goods/17525589/800x0)
+이미지 링크: <https://image.yes24.com/goods/17525589/800x0>
