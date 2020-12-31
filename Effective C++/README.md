@@ -17,6 +17,6 @@ sort: 3
     <dt>발행처</dt> <dd>프로텍미디어</dd>
 </dl>
 
-![EC++Book](2020-12-31-10-53-40.png = 480x270)
+<img src="2020-12-31-10-53-40.png" width="480" height="270"/>
 <br>
 이미지 링크: <https://image.yes24.com/goods/17525589/800x0>
