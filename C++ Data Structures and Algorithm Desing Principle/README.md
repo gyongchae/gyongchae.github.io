@@ -2,7 +2,7 @@
 sort: 4
 ---
 
-# Effective C++
+# C++ Data Structures and Algorithm Design Principles
 
 {% include list.liquid all=true %}
 
