@@ -2,7 +2,7 @@
 sort: 10
 ---
 
-# Programming Books
+# Programming Books :books:
 
 {% include list.liquid all=true %}
 
