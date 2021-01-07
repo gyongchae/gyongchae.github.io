@@ -3,6 +3,7 @@ sort: 1
 ---
 
 # 연산자 오버로딩
+
 ## 연산자 오버로딩이란
 
 ## 연산자 오버로딩 정의 및 사용하기
@@ -41,7 +42,7 @@ int main()
 	Point p3;
 	p3 = p1 + p2;
 	p3.Print();
-	
+
 	return 0;
 }
 ```
@@ -56,7 +57,7 @@ int main()
 
 ## 단항 연산자 오버로딩
 
-오버로딩이 가능한 단항 연산자: **_!_**, **_&_**, **_~_**, **_*_**, **_+_**, **_-_**, **_++_**, **_--_**
+오버로딩이 가능한 단항 연산자: **_!_**, **_&_**, **_~_**, **_\*_**, **_+_**, **_-_**, **_++_**, **_--_**
 
 ```cpp
 #include <iostream>
@@ -105,13 +106,14 @@ int main()
 	return 0;
 }
 ```
+
 <img src="2021-01-06-21-37-42.png" width="900"/>
 
 ---
 
 ## 이항 연산자 오버로딩
 
-오버로딩이 가능한 이항 연산자: **_/_**, **_==_**, **_*_**, **_+_**, **_-_**, **_!=_**, **_<_**, **_<=_** 등
+오버로딩이 가능한 이항 연산자: **_/_**, **_==_**, **_\*_**, **_+_**, **_-_**, **_!=_**, **_<_**, **_<=_** 등
 
 ```cpp
 #include <iostream>
@@ -127,7 +129,7 @@ public:
 	{
 		return (mX == arg.mX && mY == arg.mY);
 	}
-	
+
 	bool operator!=(const Point& arg) const
 	{
 		return !(*this == arg);
@@ -230,9 +232,9 @@ int main()
 ## STL에 필요한 주요 연산자 오버로딩
 
 - **함수 호출** 연산자 `operator()`
-	- 함수 호출 - `Func()`가 함수 이름
-	- 함수 포인터 - `Func()`가 함수 포인터
-	- 함수 객체 - `Func()`가 함수 객체
+  - 함수 호출 - `Func()`가 함수 이름
+  - 함수 포인터 - `Func()`가 함수 포인터
+  - 함수 객체 - `Func()`가 함수 객체
 
 ```cpp
 #include <iostream>
@@ -286,7 +288,7 @@ int main()
 	cout << endl;
 
 	FuncObject().operator()(10); // 임시 객체로 호출 (명시적)
-	FuncObject().operator()(10, 20);	 
+	FuncObject().operator()(10, 20);
 	FuncObject().operator()(10, 20, 30);
 	cout << endl;
 
@@ -315,7 +317,7 @@ int main()
 
 - **배열 인덱스** 연산자 `operator[]`
 
-	- [] 연산자 오버로딩은 일반적으로 컨테이너 객체에 사용 (컨테이너 객체가 관리하는 내부 원소에 접근할 때)
+  - [] 연산자 오버로딩은 일반적으로 컨테이너 객체에 사용 (컨테이너 객체가 관리하는 내부 원소에 접근할 때)
 
 ```warning
 very bad example
@@ -385,24 +387,156 @@ int main()
 
 - **메모리 접근, 클래스 멤버 접근** 연산자 `operator*`, `operator->`
 
-**_*_**, **_->_** 연산자는 **스마트 포인터**나 **반복자(iterator)** 등의 특수한 객체에 사용
+**_\*_**, **_->_** 연산자는 **스마트 포인터**나 **반복자(iterator)** 등의 특수한 객체에 사용
 {:.bg-yellow-dark}
-반복자는 STL의 핵심 구성 요소이므로 **_*_**, **_->_** 연산자 오버로딩 매우 중요!
-
-
+반복자는 STL의 핵심 구성 요소이므로 **_\*_**, **_->_** 연산자 오버로딩 매우 중요!
 
 ```cpp
+#include <iostream>
+using namespace std;
+
+class Point
+{
+public:
+	Point(int x = 0, int y = 0) : mX(x), mY(y) {}
+	void Print() const { cout << mX << ", " << mY << endl; }
+
+private:
+	int mX;
+	int mY;
+};
+
+class PointPtr
+{
+public:
+	PointPtr(Point* p) : mPtr(p) {}
+	~PointPtr() { delete mPtr; }
+
+	Point* operator->() const
+	{
+		return mPtr;
+	}
+
+	Point& operator*() const
+	{
+		return *mPtr;
+	}
+
+private:
+	Point* mPtr;
+};
+
+int main()
+{
+	PointPtr p1 = new Point(1, 2);
+	PointPtr p2 = new Point(5, 3);
+
+	p1->Print();
+	p2->Print();
+
+	cout << endl;
+
+	p1.operator->()->Print();
+	p2.operator->()->Print();
+
+	cout << endl;
+
+	Point* p3 = new Point(10, 20);
+	PointPtr p4 = new Point(30, 40);
+
+	p3->Print();
+	p4->Print();
+
+	cout << endl;
+
+	(*p3).Print();
+	(*p4).Print(); // Point& operator*() related
+
+	delete p3;
+
+	return 0;
+}
 ```
 
-
-
-```cpp
-```
+![](2021-01-07-22-04-33.png)
 
 ## 타입 변환 연산자 오버로딩
+
+- [ ] 생성자를 이용한 타입 변환
+- [ ] 타입 변환 연산자 오버로딩을 이용한 타입 변환
+
+
 
 # 함수 포인터
 
 # 함수 객체
 
 # 템플릿
+
+---
+
+```note
+생성자를 이용한 형변환을 의도하지 않는다면 explicit 키워드 지정!
+```
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Point
+{
+public:
+	Point(int x = 0, int y = 0) : mX(x), mY(y) {}
+	void Print() const { cout << mX << ", " << mY << endl; }
+
+private:
+	int mX;
+	int mY;
+};
+
+int main()
+{
+	Point p1(100, 200);
+	Point p2 = 10; // Mistake but not error!
+
+	p1.Print();
+	p2.Print();
+
+	return 0;
+}
+```
+
+```danger
+![](2021-01-07-22-38-02.png)
+```
+
+생성자에 `explicit` 키워드 추가 후
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Point
+{
+public:
+	explicit Point(int x = 0, int y = 0) : mX(x), mY(y) {}
+	void Print() const { cout << mX << ", " << mY << endl; }
+
+private:
+	int mX;
+	int mY;
+};
+
+int main()
+{
+	Point p1(100, 200);
+	Point p2 = 10; // error
+
+	p1.Print();
+	p2.Print();
+
+	return 0;
+}
+```
+
+![](2021-01-07-22-39-23.png)
