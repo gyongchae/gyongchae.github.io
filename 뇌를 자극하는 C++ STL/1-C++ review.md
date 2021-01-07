@@ -4,6 +4,7 @@ sort: 1
 
 # 연산자 오버로딩
 ## 연산자 오버로딩이란
+
 ## 연산자 오버로딩 정의 및 사용하기
 
 ```cpp
@@ -284,9 +285,9 @@ int main()
 	FuncObject()(10, 20, 30);
 	cout << endl;
 
-	FuncObject()(10); // 임시 객체로 호출 (명시적)
-	FuncObject()(10, 20);	 
-	FuncObject()(10, 20, 30);
+	FuncObject().operator()(10); // 임시 객체로 호출 (명시적)
+	FuncObject().operator()(10, 20);	 
+	FuncObject().operator()(10, 20, 30);
 	cout << endl;
 
 	void (*pPrint)(int) = Print1;
@@ -300,9 +301,15 @@ int main()
 
 	return 0;
 }
+}
 ```
 
 ![](2021-01-07-11-39-50.png)
+
+```tip
+명시적 할당 (Explicit Assignment)
+암시적 할당 (Implicit Assignment)
+```
 
 - **배열 인덱스** 연산자 `operator[]`
 
