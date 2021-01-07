@@ -317,20 +317,89 @@ int main()
 
 	- [] 연산자 오버로딩은 일반적으로 컨테이너 객체에 사용 (컨테이너 객체가 관리하는 내부 원소에 접근할 때)
 
-- **메모리 접근, 클래스 멤버 접근** 연산자 `operator*`
+```warning
+very bad example
+```
 
-- **메모리 접근, 클래스 멤버 접근** 연산자 `operator->`
+```cpp
+#include <iostream>
+using namespace std;
+
+class Array
+{
+public:
+	Array(int cap = 100) : mArr(0), mSize(0), mCapacity(cap)
+	{
+		mArr = new int[mCapacity];
+	}
+	~Array() { delete[]mArr; }
+
+	void Add(int data)
+	{
+		if (mSize < mCapacity)
+		{
+			mArr[mSize++] = data;
+		}
+	}
+
+	int Capacity() const
+	{
+		return mCapacity;
+	}
+
+	int Size() const
+	{
+		return mSize;
+	}
+
+	int operator[](int idx) const
+	{
+		return mArr[idx];
+	}
+
+	int& operator[](int idx)
+	{
+		return mArr[idx];
+	}
+
+private:
+	int* mArr;
+	int mSize;
+	int mCapacity;
+};
+
+int main()
+{
+	Array ar(10);
+	ar[0] = 100;
+	ar[1] = 200;
+	ar[2] = 300;
+
+	cout << ar[0] << ", " << ar[1] << ", " << ar[2] << endl;
+
+	return 0;
+}
+```
+
+![](2021-01-07-19-46-15.png)
+
+- **메모리 접근, 클래스 멤버 접근** 연산자 `operator*`, `operator->`
+
+**_*_**, **_->_** 연산자는 **스마트 포인터**나 **반복자(iterator)** 등의 특수한 객체에 사용
+{:.bg-yellow-dark}
+반복자는 STL의 핵심 구성 요소이므로 **_*_**, **_->_** 연산자 오버로딩 매우 중요!
+
+
+
+```cpp
+```
+
+
+
+```cpp
+```
 
 ## 타입 변환 연산자 오버로딩
-
-```note TITLE
-
-```
-
-```cpp asdf.cpp
-#include <iostream>
-using namespace asdf;
-```
 
 # 함수 포인터
 
