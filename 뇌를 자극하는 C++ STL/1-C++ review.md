@@ -310,7 +310,7 @@ int main()
 - [x] 명시적(explicit) 호출
 - [x] 암시적(implicit) 호출
 
-[한글 설명](https://m.blog.naver.com/PostView.nhn?blogId=singerjyy&logNo=100093475608&proxyReferer=https:%2F%2Fwww.google.com%2F)
+[한글 설명](https://m.blog.naver.com/PostView.nhn?blogId=singerjyy&logNo=100093475608&proxyReferer=https:%2F%2Fwww.google.com%2F){: target="_blank"}
 ```
 
 - **배열 인덱스** 연산자 `operator[]`
