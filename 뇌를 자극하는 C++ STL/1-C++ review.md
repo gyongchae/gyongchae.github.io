@@ -306,9 +306,10 @@ int main()
 
 ![](2021-01-07-11-39-50.png)
 
-```tip
-명시적 할당 (Explicit Assignment)
-암시적 할당 (Implicit Assignment)
+```plaintext
+**keywords**
+- [x] 명시적(Explicit) 호출
+- [x] 암시적(Implicit) 호출
 ```
 
 - **배열 인덱스** 연산자 `operator[]`
