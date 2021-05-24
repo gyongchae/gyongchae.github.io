@@ -4,8 +4,6 @@ sort: 87
 
 # Useful book/tech for programming
 
-{% include list.liquid all=true %}
-
 # Books
 - [ ] **Clean Code**
 - [ ] **Clean Architecture**
